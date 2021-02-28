@@ -25,3 +25,12 @@ def get_number(a,b):
 
     def number_of_neighboring_mines(field,mines,rows,columns):
         counter_of_mines=0
+        i = field[0]
+        j = field[1]
+
+        for m,n in [(i-1,j-1),(i-1,j),(i-1,j+1),(i,j-1),(i,j+1),(i+1,j-1),(i+1,j),(i+1,j+1)]
+            if 0 <= m <rows and 0 <= m < columns and in mines:
+                counter_of_mines +=1
+                return counter_of_mines
+
+    def create_board(rows,columns,mines,mine='*'):
