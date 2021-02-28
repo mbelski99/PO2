@@ -17,4 +17,11 @@ def get_number(a,b):
             mines.add((m,n))
         return mines
 
-    r=
+    r=10
+    c=10
+    number_of_mines = get_number(0,r*c-1)
+    mines = lay_mines(number_of_mines,r,10)
+    print(mines)
+
+    def number_of_neighboring_mines(field,mines,rows,columns):
+        counter_of_mines=0
