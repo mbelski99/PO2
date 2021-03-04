@@ -5,6 +5,18 @@ class Pet:
         self.hunger = hunger
         self.tirdness = tirdness
 
+    @property
+    def name(self):
+        return self._name
+
+    @name.setter
+    def name(self, value):
+        if value.length > 2 and value.isalpha():
+            self._name = value
+        else:
+            print("nazwa powinna zawierać same litery oraz jej długość nie może być mniejsza niż 3")
+            self._name = False
+
     def _passage_of_time(self):
         self.hunger += 1
         self.tirdness += 1
@@ -24,7 +36,7 @@ class Pet:
         return m
 
     def talk(self):
-        print("nastrój:",self.mood)
+        print("nastrój:", self.mood)
         self._passage_of_time()
 
     def eat(self, food=4):
@@ -54,14 +66,15 @@ class Pet:
 
 def main():
     pet1_name = input("Jak chcesz nazwac swojego pupila? ")
-    pet1 = Pet(pet1_name)
+    name = name(pet1_name)
+    pet1 = Pet(name)
 
     select = None
     while select != "0":
         print \
             ("""
 		Symulator opieki nad wirtualnym zwierzakiem
-		
+
 		1 - Nastrój
 		2 - Jedzenie
 		3 - Zabawa
@@ -81,4 +94,6 @@ def main():
             print("Koniec")
         else:
             print("Nie wybrałeś żadnej opcji")
+
+
 main()
