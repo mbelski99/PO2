@@ -24,7 +24,7 @@ class Pet:
         return m
 
     def talk(self):
-        print("nastrój:",self.mood)
+        print("nastrój:", self.mood)
         self._passage_of_time()
 
     def eat(self, food=4):
@@ -61,7 +61,7 @@ def main():
         print \
             ("""
 		Symulator opieki nad wirtualnym zwierzakiem
-		
+
 		1 - Nastrój
 		2 - Jedzenie
 		3 - Zabawa
@@ -81,4 +81,6 @@ def main():
             print("Koniec")
         else:
             print("Nie wybrałeś żadnej opcji")
+
+
 main()
