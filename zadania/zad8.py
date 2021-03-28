@@ -1,5 +1,4 @@
 class Pet:
-
     def __init__(self, name, hunger=0, tirdness=0):
         self.name = name
         self.hunger = hunger
@@ -8,6 +7,18 @@ class Pet:
     def _passage_of_time(self):
         self.hunger += 1
         self.tirdness += 1
+
+    @property
+    def name(self):
+        return self._name
+
+    @name.setter
+    def name(self, value):
+        if isinstance(value, str) and len(value) > 2 and value.isalpha():
+            self._name = value
+        else:
+            print("nazwa powinna zawierać same litery oraz być dłuższa od 2")
+            self._name = "noname"
 
     @property
     def mood(self):
@@ -24,10 +35,11 @@ class Pet:
         return m
 
     def talk(self):
-        print("nastrój:", self.mood)
         self._passage_of_time()
+        print("nastrój:", self.mood)
 
     def eat(self, food=4):
+        self._passage_of_time
         while food > 3:
             food = int(input("ile jedzenia chcesz dac?"))
             if food > 3:
@@ -37,9 +49,9 @@ class Pet:
                 self.hunger -= food
                 if self.hunger < 0:
                     self.hunger = 0
-                self._passage_of_time
 
     def play(self, fun=4):
+        self._passage_of_time
         while fun > 3:
             fun = int(input("jak dlugo chcesz sie bawic?"))
             if fun > 3:
@@ -49,7 +61,6 @@ class Pet:
                 self.tirdness -= fun
                 if self.tirdness < 0:
                     self.tirdness = 0
-                self._passage_of_time
 
 
 def main():
@@ -80,7 +91,7 @@ def main():
         elif select == "0":
             print("Koniec")
         else:
-            print("Nie wybrałeś żadnej opcji")
+            print("Błąd:")
 
 
 main()
