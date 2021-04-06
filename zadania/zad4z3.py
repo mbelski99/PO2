@@ -27,8 +27,8 @@ def gen_time(start, stop, hop):
         else:
             czasStart[1] += czasHop[1]
 
-        star = (czasStart[0], czasStart[1], czasStart[2])
-        yield star
+        start1 = (czasStart[0], czasStart[1], czasStart[2])
+        yield start1
 
         if czasStart[0] >= czasStop[0]:
             if czasStart[1] >= czasStop[1]:
