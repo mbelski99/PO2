@@ -1,37 +1,37 @@
 def gen_time(start, stop, hop):
-    czasStart = list(start)
-    czasStop = list(stop)
-    czasHop = list(hop)
+    czStart = list(start)
+    czStop = list(stop)
+    czHop = list(hop)
 
-    start = (czasStart[0], czasStart[1], czasStart[2])
+    start = (czStart[0], czStart[1], czStart[2])
     yield start
 
     while True:
-        tmp_h = czasStart[0] + czasHop[0]
-        tmp_min = czasStart[1] + czasHop[1]
-        tmp_sec = czasStart[2] + czasHop[2]
-        if tmp_h >= 24:
-            czasStart[0] = 0
+        t_h = czStart[0] + czHop[0]
+        t_min = czStart[1] + czHop[1]
+        t_sec = czStart[2] + czHop[2]
+        if t_h >= 24:
+            czStart[0] = 0
         else:
-            czasStart[0] += czasHop[0]
+            czStart[0] += czHop[0]
 
-        if tmp_sec >= 60:
-            czasStart[1] += 1
-            czasStart[2] = tmp_sec - 60
+        if t_sec >= 60:
+            czStart[1] += 1
+            czStart[2] = t_sec - 60
         else:
-            czasStart[2] += czasHop[2]
+            czStart[2] += czHop[2]
 
-        if tmp_min >= 60:
-            czasStart[0] += 1
-            czasStart[1] = tmp_min - 60
+        if t_min >= 60:
+            czStart[0] += 1
+            czStart[1] = t_min - 60
         else:
-            czasStart[1] += czasHop[1]
+            czStart[1] += czHop[1]
 
-        start1 = (czasStart[0], czasStart[1], czasStart[2])
+        start1 = (czStart[0], czStart[1], czStart[2])
         yield start1
 
-        if czasStart[0] >= czasStop[0]:
-            if czasStart[1] >= czasStop[1]:
+        if czStart[0] >= czStop[0]:
+            if czStart[1] >= czStop[1]:
                 break
 
 
